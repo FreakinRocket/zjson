@@ -8,7 +8,7 @@ import (
 )
 
 // loads config into config struct from given file name
-func LoadJSON(objectPointer *any, jsonFilePath string) {
+func LoadJSON(objectPointer any, jsonFilePath string) {
 	jsonFile, err := os.Open(jsonFilePath)
 	ChkError(err)
 	defer jsonFile.Close()
