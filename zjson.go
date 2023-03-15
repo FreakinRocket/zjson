@@ -8,7 +8,7 @@ import (
 )
 
 // loads config into config struct from given file name
-func LoadJSON(objectPointer *interface{}, jsonFilePath string) {
+func LoadJSON(objectPointer *any, jsonFilePath string) {
 	jsonFile, err := os.Open(jsonFilePath)
 	ChkError(err)
 	defer jsonFile.Close()
@@ -18,7 +18,7 @@ func LoadJSON(objectPointer *interface{}, jsonFilePath string) {
 }
 
 // saves config to file from struct
-func SaveJSON(object interface{}, jsonFilePath string) {
+func SaveJSON(object any, jsonFilePath string) {
 	jsonData, err := json.MarshalIndent(object, "", " ")
 	ChkError(err)
 	err = os.WriteFile(jsonFilePath, jsonData, 0644)
